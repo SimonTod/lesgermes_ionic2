@@ -4,6 +4,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
 import { ApiLesGermesProvider } from '../providers/ApiLesGermes';
 import { AlertsProvider } from '../providers/Alerts';
 
@@ -11,7 +12,8 @@ import { AlertsProvider } from '../providers/Alerts';
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -21,7 +23,8 @@ import { AlertsProvider } from '../providers/Alerts';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [ApiLesGermesProvider, AlertsProvider, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })

@@ -3,6 +3,7 @@ import { ApiLesGermesProvider } from '../../providers/ApiLesGermes';
 import { AlertsProvider } from '../../providers/Alerts';
 
 import { LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -43,15 +44,20 @@ export class HomePage {
     if (this.justLoggedIn) {
       this.apiLesGermes.get("user").then(
         data => {
-          this.alerts.showAlert("Bienvenu " + data.name);
+          this.alerts.showSuccessAlert("Bienvenu " + data.name, "Home");
         },
         error => {
-          this.alerts.showAlert(error);
+          this.alerts.showErrorAlert(error, "Home");
         }
       ).catch((err) => {
-        this.alerts.showAlert(err);
+        this.alerts.showErrorAlert(err, "Home");
       });
     }
+  }
+
+  logout() {
+    this.apiLesGermes.clearStorage();
+    this.nav.setRoot(LoginPage);
   }
 
 }

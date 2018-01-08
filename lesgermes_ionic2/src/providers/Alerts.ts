@@ -15,12 +15,25 @@ export class AlertsProvider {
     console.log('Hello Alerts Provider');
   }
 
-  showAlert(message: string) {
+  showErrorAlert(message: string, source: string) {
     let alert = this.alertController.create({
       title: 'Error',
-      subTitle: 'Source: Log In',
+      subTitle: 'Source: ' + source,
       message: message,
       buttons: [{ text: 'Sorry' }]
+    });
+    alert.present();
+  }
+
+  showSuccessAlert(message: string, source: string, callback: any = () => { }) {
+    let alert = this.alertController.create({
+      title: 'Success',
+      subTitle: 'Source: ' + source,
+      message: message,
+      buttons: [{
+        text: 'OK',
+        handler: callback
+      }]
     });
     alert.present();
   }

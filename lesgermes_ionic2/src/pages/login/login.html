@@ -17,12 +17,13 @@
   <form (ngSubmit)="loginForm()">
     <ion-item>
       <ion-label>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="loginEntry.email" name="Email"></ion-input>
+      <ion-input type="email" [(ngModel)]="loginEntry.email" name="Email" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Mot de passe</ion-label>
-      <ion-input type="password" [(ngModel)]="loginEntry.password" name="Mot de passe"></ion-input>
+      <ion-input type="password" [(ngModel)]="loginEntry.password" name="Mot de passe" required></ion-input>
     </ion-item>
     <button ion-button type="submit" block>Connexion</button>
   </form>
+  <button ion-button (click)="showRegisterPage()">Inscription</button>
 </ion-content>

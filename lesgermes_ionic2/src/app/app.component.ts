@@ -34,7 +34,7 @@ export class MyApp {
   onInit() {
     this.apiLesGermes.checkUserLoggedIn().then((result) => {
       //this.navCtrl.push(LoginPage);
-      //this.alerts.showAlert(result ? "true": "false");
+      //this.alerts.showErrorAlert(result ? "true": "false");
       if (!result) {
         this.rootPage = LoginPage
       }

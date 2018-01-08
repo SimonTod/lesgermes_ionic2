@@ -3,6 +3,7 @@ import { ApiLesGermesProvider } from '../../providers/ApiLesGermes';
 import { AlertsProvider } from '../../providers/Alerts';
 import { LoadingController, NavController, Platform, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { RegisterPage } from '../register/register';
 
 /*
   Generated class for the login page.
@@ -32,7 +33,7 @@ export class LoginPage {
 
   loginForm() {
     let loader = this.loadingCtrl.create({
-      content: "Trying to log in"
+      content: "Connexion"
     });
     //Show the loading indicator
     loader.present();
@@ -56,7 +57,7 @@ export class LoginPage {
             }
             else {
               loader.dismiss();
-              this.alerts.showAlert(data.message);
+              this.alerts.showErrorAlert(data.message, "Log In");
             }
           });
         } else {
@@ -70,9 +71,13 @@ export class LoginPage {
         loader.dismiss();
         console.error('Error Log in');
         console.dir(error);
-        this.alerts.showAlert(error);
+        this.alerts.showErrorAlert(error, "Log In");
       }
     );
+  }
+
+  showRegisterPage() {
+    this.navCtrl.push(RegisterPage);
   }
 
 }

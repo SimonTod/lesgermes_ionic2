@@ -169,8 +169,8 @@ export class ApiLesGermesProvider {
   //'Borrowed' from //https://angular.io/docs/ts/latest/guide/server-communication.html
   private handleError(res: Response | any) {
     console.error('Entering handleError');
-    console.dir(res);
-    return Promise.reject(res.message || res);
+    console.dir(res.json());
+    return Promise.reject(res.json().error || res.message || res);
   }
 
   private saveApiToken(token: string) {
