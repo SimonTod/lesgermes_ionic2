@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
+import { StartPage } from '../pages/start/start';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AlertsProvider } from '../providers/Alerts';
@@ -12,7 +13,7 @@ import { ApiLesGermesProvider } from '../providers/ApiLesGermes';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = HomePage;
+  rootPage: any = StartPage;
 
   constructor(
     platform: Platform,
@@ -35,9 +36,7 @@ export class MyApp {
     this.apiLesGermes.checkUserLoggedIn().then((result) => {
       //this.navCtrl.push(LoginPage);
       //this.alerts.showErrorAlert(result ? "true": "false");
-      if (!result) {
-        this.rootPage = LoginPage
-      }
+      this.rootPage = result ? HomePage : LoginPage;
     })
   }
 }
