@@ -14,8 +14,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ApiLesGermesProvider {
 
-  private ApiEndpoint = 'http://localhost/lesgermes_laravel/public/api/';
-  private BaseEndPoint = 'http://localhost/lesgermes_laravel/public/';
+  private ApiEndpoint = 'http://api.lesgermes.local/';
+  private BaseEndPoint = 'http://lesgermes.local/';
 
   constructor(public http: Http, public storage: Storage) {
     console.log('Hello ApiLesGermes Provider');

@@ -6,6 +6,7 @@ import { StartPage } from '../pages/start/start';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { EdensPage } from '../pages/edens/edens';
 import { ApiLesGermesProvider } from '../providers/ApiLesGermes';
 import { AlertsProvider } from '../providers/Alerts';
 
@@ -15,7 +16,8 @@ import { AlertsProvider } from '../providers/Alerts';
     StartPage,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    EdensPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -27,7 +29,8 @@ import { AlertsProvider } from '../providers/Alerts';
     StartPage,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    EdensPage
   ],
   providers: [ApiLesGermesProvider, AlertsProvider, { provide: ErrorHandler, useClass: IonicErrorHandler }]
 })

@@ -4,6 +4,7 @@ import { AlertsProvider } from '../../providers/Alerts';
 
 import { LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { EdensPage } from '../edens/edens';
 
 @Component({
   selector: 'page-home',
@@ -53,6 +54,10 @@ export class HomePage {
         this.alerts.showErrorAlert(err, "Home");
       });
     }
+  }
+
+  myEdens() {
+    this.nav.push(EdensPage);
   }
 
   logout() {
