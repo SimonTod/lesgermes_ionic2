@@ -14,8 +14,11 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ApiLesGermesProvider {
 
-  private ApiEndpoint = 'http://api.lesgermes.local/';
-  private BaseEndPoint = 'http://lesgermes.local/';
+  //private ApiEndpoint = 'http://api.lesgermes.local/';
+  //private BaseEndPoint = 'http://lesgermes.local/';
+
+  private ApiEndpoint = 'https://api.lesgermes.tk/';
+  private BaseEndPoint = 'https://lesgermes.tk/';
 
   constructor(public http: Http, public storage: Storage) {
     console.log('Hello ApiLesGermes Provider');
@@ -137,7 +140,7 @@ export class ApiLesGermesProvider {
   }
 
   async getApiToken(body: any): Promise<any> {
-    let returnData = { success : null, message : "" };
+    let returnData = { success: null, message: "" };
     return this.post("oauth/token", body, true, true).then(
       data => {
         if (data) {

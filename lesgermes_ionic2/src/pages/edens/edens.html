@@ -19,12 +19,41 @@
 
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="getUserEdens($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-card *ngFor="let eden of edens">
     <ion-card-header>
       {{ eden.eden_id }}
     </ion-card-header>
-    <ion-card-content>
-      {{ eden.id }}
+
+    <ion-card-content *ngIf="eden.info!==null">
+      <ion-item>
+        <ion-icon name='thermometer' item-start></ion-icon>
+        Température
+        <ion-badge class="eden-info-badge" item-end>{{ eden.info.temperature }} °C</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='bulb' item-start></ion-icon>
+        Lumière
+        <ion-badge class="eden-info-badge" item-end>{{ eden.info.light }}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='water' item-start></ion-icon>
+        Eau
+        <ion-badge class="eden-info-badge" item-end>{{ eden.info.water }}</ion-badge>
+      </ion-item>
     </ion-card-content>
+
+    <ion-card-content *ngIf="eden.info==null">
+      <ion-item  class="eden-info-no-data">
+        <ion-icon name='alert' item-start></ion-icon>
+        Aucunes données
+      </ion-item>
+    </ion-card-content>
+
   </ion-card>
 </ion-content>

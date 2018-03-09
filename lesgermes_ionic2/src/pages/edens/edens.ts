@@ -31,7 +31,7 @@ export class EdensPage {
       this.getUserEdens();
     }
 
-    getUserEdens() {
+    getUserEdens(refresher = null) {
       let loader = this.loadingCtrl.create({
         content: "Chargement"
       });
@@ -42,10 +42,14 @@ export class EdensPage {
         data => {
           if (data) {
             loader.dismiss();
+            if (refresher)
+              refresher.complete();
             this.edens = data;
           }
           else {
             loader.dismiss();
+            if (refresher)
+              refresher.complete();
             //This really should never happen
             console.error('Error Get Edens: no data');
           }
@@ -53,6 +57,8 @@ export class EdensPage {
         error => {
           //Hide the loading indicator
           loader.dismiss();
+          if (refresher)
+            refresher.complete();
           console.error('Error Get Edens');
           console.dir(error);
           this.alerts.showErrorAlert(error, "Eden");
